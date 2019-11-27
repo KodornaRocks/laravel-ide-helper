@@ -338,9 +338,13 @@ class ModelsCommand extends Command
         }
 
         $database = null;
-        if (strpos($table, '.')) {
-            list($database, $table) = explode('.', $table);
-        }
+        
+        //TODO: Warn everyone not to use this solution /heh
+        //Removed this code to work properly with Eloquent models that uses the
+        //protected $table = 'schema.table'; thing
+        //if (strpos($table, '.')) {
+        //    list($database, $table) = explode('.', $table);
+        //}
 
         $columns = $schema->listTableColumns($table, $database);
 
